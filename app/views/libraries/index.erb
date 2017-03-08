@@ -1,0 +1,7 @@
+<div class="">
+    <ul>
+      <% @libraries.each do |library| %>
+        <li><a href="/libraries/<%= library.id%>/books"><%= library.address %></a></li>
+      <% end %>
+    </ul>
+</div>

@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   # Remember to create a migration!
   validates :title, :author, presence: :true
+  belongs_to :library
 
   # validate :my_custome_validation
   #

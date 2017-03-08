@@ -4,6 +4,7 @@ get '/books' do
 end
 
 get '/books/new' do
+  @library = Library.find_by(id: params[:id])
   erb :'/books/new'
 end
 

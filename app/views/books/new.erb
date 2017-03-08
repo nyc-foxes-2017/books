@@ -1,7 +1,7 @@
 <div class="">
-<%= erb :'/partila/_errors'%>
+<%= erb :'/partial/_errors'%>
 
-  <form class="" action="/books" method="post">
+  <form class="" action="/libraries/<%=@library.id%>/books" method="post">
     <div class="">
       <label for="title">Title</label>
       <input id="title" type="text" name="book[title]" placeholder="Title">
