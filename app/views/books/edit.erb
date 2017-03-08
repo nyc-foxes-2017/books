@@ -1,0 +1,18 @@
+<div class="">
+<%= erb :'/partial/_errors'%>
+
+  <form class="" action="/libraries/<%=@library.id%>/books/<%= @book.id%>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <div class="">
+      <label for="title">Title</label>
+      <input id="title" type="text" name="book[title]" placeholder="Title" value="<%= @book.title%>">
+    </div>
+
+    <div class="">
+      <label for="author">Author</label>
+      <input id="author" type="text" name="book[author]" placeholder="Author" value="<%= @book.title%>">
+    </div>
+
+    <input type="submit" name="" value="Update">
+  </form>
+</div>

@@ -3,9 +3,15 @@ get '/books' do
   erb :'/books/index'
 end
 
+
 get '/books/new' do
-  @library = Library.find_by(id: params[:id])
+  # @library = Library.find_by(id: params[:id])
   erb :'/books/new'
+end
+
+get '/books/:id' do
+
+  erb :'/books/index'
 end
 
 

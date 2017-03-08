@@ -2,6 +2,7 @@
 <%= erb :'/partial/_errors'%>
 
   <form class="" action="/libraries/<%=@library.id%>/books" method="post">
+
     <div class="">
       <label for="title">Title</label>
       <input id="title" type="text" name="book[title]" placeholder="Title">
@@ -12,6 +13,6 @@
       <input id="author" type="text" name="book[author]" placeholder="Author">
     </div>
 
-    <input type="submit" name="" value="Add">
+    <input type="submit" name="" value="Update">
   </form>
 </div>
