@@ -2,7 +2,10 @@
     <h3>My library</h3>
     <ul>
       <% @books.each do |book| %>
-        <li><%= book.title%>(<%= book.author%>)</li><a href="/libraries/<%= @library.id%>/books/<%= book.id%>/edit">Edit</a>
+        <li><%= book.title%>(<%= book.author%>)</li>
+        <% if logedin?%>
+          <a href="/libraries/<%= @library.id%>/books/<%= book.id%>/edit">Edit</a>
+        <% end %>
       <% end %>
     </ul>
 

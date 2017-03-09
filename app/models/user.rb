@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
 
+  has_many :libraries
+
   validates :username, :email, presence: true
   validates :password, length: {minimum: 6}
 

@@ -1,4 +1,5 @@
 before '/libraries/:id/*' do
+  require_user
   # binding.pry
   @library = Library.find_by(id: params[:id])
 end
@@ -9,19 +10,20 @@ get '/libraries' do
 end
 
 get '/libraries/:id/books' do
-  # binding.pry
-  # @library = Library.find_by(id: params[:id])
+require_user
   @books = @library.books
   erb :"/books/index"
 end
 
 get '/libraries/:id/books/new' do
+  require_user
   # @library =  Library.find_by(id: params[:id])
   erb :'/books/new'
 end
 
 
 post '/libraries/:id/books' do
+  require_user
   # @library = Library.find_by(id: params[:id])
   book = @library.books.new(params[:book])
   if book.save
