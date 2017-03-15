@@ -18,7 +18,11 @@ end
 get '/libraries/:id/books/new' do
   require_user
   # @library =  Library.find_by(id: params[:id])
-  erb :'/books/new'
+  if request.xhr?
+    erb :'/books/_new', layout: false
+  else
+    erb :'/books/new'
+  end
 end
 
 
@@ -26,11 +30,17 @@ post '/libraries/:id/books' do
   require_user
   # @library = Library.find_by(id: params[:id])
   book = @library.books.new(params[:book])
-  if book.save
-    redirect "/libraries/#{@library.id}/books"
+  if request.xhr?
+    # For AJAX Requests
+    book.save
+    erb :'/books/_book', layout: false, locals: {book: book}
   else
-    @errors = book.errors.full_messages
-    erb :'/books/new'
+    if book.save
+      redirect "/libraries/#{@library.id}/books"
+    else
+      @errors = book.errors.full_messages
+      erb :'/books/new'
+    end
   end
 
 end
