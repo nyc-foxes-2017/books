@@ -1,13 +1,12 @@
-<div class="">
+<div class="book-index">
     <h3>My library</h3>
     <ul>
-      <% @books.each do |book| %>
-        <li><%= book.title%>(<%= book.author%>)</li>
-        <% if logedin?%>
-          <a href="/libraries/<%= @library.id%>/books/<%= book.id%>/edit">Edit</a>
-        <% end %>
+      <% @books.each do |book_instance| %>
+        
+        <%= erb :'/books/_book', locals: {book: book_instance} %>
+        
       <% end %>
     </ul>
 
-    <a href="/libraries/<%= @library.id%>/books/new">Add a new book</a>
+    <a id='addNewForm' href="/libraries/<%= @library.id%>/books/new">Add a new book</a>
 </div>

@@ -1,0 +1,4 @@
+<li><%= book.title%>(<%= book.author%>)</li>
+<% if logedin?%>
+  <a href="/libraries/<%= @library.id%>/books/<%= book.id%>/edit">Edit</a>
+<% end %>
